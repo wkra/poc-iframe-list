@@ -17,6 +17,7 @@ const emitHandler = () => {
     composed: false,
   });
   document.dispatchEvent(myEvent);
+  console.log('childevent emited')
 };
 
 onMounted(() => {
