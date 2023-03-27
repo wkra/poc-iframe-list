@@ -1,0 +1,1 @@
+.responsive__container{display:flex;flex-wrap:wrap}.responsive__column{width:100%}@media(min-width:1024px){.responsive__column{width:50%}}.s-modal-content{padding:30px;background-color:#fff}body{margin:0}
