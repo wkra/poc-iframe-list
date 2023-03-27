@@ -22,7 +22,7 @@ const apiUrl = 'https://swapi.dev/api/people';
 const nextUrl = ref('');
 
 const loadMoreHandler = () => {
-  addPeople(apiUrl.value);
+  addPeople(nextUrl.value);
 }
 
 const getPeople = async (url) => {
