@@ -1,13 +1,11 @@
 <template>
   <div>
-    <button type="button" @click="emitHandler">Emitt event</button>
-    <div v-if="showCustomEventMessage">CUSTOM EVENT FROM PARENT RECIVED</div>
+    <div>TEST child / parent communication</div>
+    <button type="button" @click="emitHandler">Emit event</button>
   </div>
 </template>
 <script setup>
-import { onMounted, onUnmounted, ref } from "vue";
-
-const showCustomEventMessage = ref(false);
+import { onMounted, onUnmounted } from "vue";
 
 const emitHandler = () => {
   const myEvent = new CustomEvent("childevent", {
@@ -16,14 +14,13 @@ const emitHandler = () => {
     cancelable: true,
     composed: false,
   });
+  console.log("emit child event");
   document.dispatchEvent(myEvent);
-  console.log('childevent emited')
 };
 
 const eventHandler = () => {
-    showCustomEventMessage.value = true;
-    console.log("parentevent received")
-}
+  alert("I am script / iframe. Parent event received");
+};
 
 onMounted(() => {
   document.addEventListener("parentevent", eventHandler);

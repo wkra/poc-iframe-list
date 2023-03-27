@@ -1,26 +1,27 @@
 <template>
   <div>
-    <div>
-      <div>Cookie item: {{ cookieItem }}</div>
-      <div>localStore item: {{ localStorageItem }}</div>
-      <div>sessionStore item: {{ sessionStorageItem }}</div>
-    </div>
+    <h2>I AM CHILD - IFRAME / SCRIPT</h2>
     <CustomEvent />
+    <hr />
+    <TheStorage />
+    <hr />
     <TheList />
+    <hr />
+    <TheResponsive />
+    <hr />
+    <TheModal />
   </div>
 </template>
 
 <script setup>
-import { useCookies } from "vue3-cookies";
 import TheList from "./components/TheList.vue";
 import CustomEvent from './components/CustomEvent.vue';
-
-const itemKey = "item";
-const { cookies } = useCookies();
-
-const cookieItem = cookies.get(itemKey);
-const localStorageItem = localStorage.getItem(itemKey) || "none";
-const sessionStorageItem = sessionStorage.getItem(itemKey) || "none";
+import TheResponsive from "./components/TheResponsive.vue";
+import TheModal from "./components/TheModal.vue";
+import TheStorage from "./components/TheStorage.vue";
 </script>
 
-<style></style>
+<style lang="scss">
+body {
+  margin: 0;
+}</style>

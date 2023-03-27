@@ -1,6 +1,5 @@
 <template>
   <div>
-    <hr />
     <div>THE LIST</div>
     <div>
       <button type="button" v-if="nextUrl" @click="loadMoreHandler">
@@ -18,17 +17,17 @@
 <script setup>
 import { ref, onMounted } from "vue";
 const list = ref([]);
-const apiUrl = 'https://swapi.dev/api/people';
-const nextUrl = ref('');
+const apiUrl = "https://swapi.dev/api/people";
+const nextUrl = ref("");
 
 const loadMoreHandler = () => {
   addPeople(nextUrl.value);
-}
+};
 
 const getPeople = async (url) => {
   const response = await fetch(url);
   const data = await response.json();
-  nextUrl.value = data.next
+  nextUrl.value = data.next;
 
   return data.results;
 };
@@ -36,12 +35,12 @@ const getPeople = async (url) => {
 const addPeople = async (url = apiUrl) => {
   const result = await getPeople(url);
 
-  result.forEach(element => {
-    list.value.push(element)
+  result.forEach((element) => {
+    list.value.push(element);
   });
-}
+};
 
 onMounted(() => {
-  addPeople(apiUrl)
+  addPeople(apiUrl);
 });
 </script>

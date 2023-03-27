@@ -6,4 +6,7 @@ module.exports = defineConfig({
   chainWebpack: (config) => {
     config.optimization.delete("splitChunks");
   },
+  devServer: {
+    port: 8081,
+  },
 });
